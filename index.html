@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>dev.stopa.dk</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/tailwind.css?id=4bf71e3a5de9cfa091cc">
+</head>
+
+<body class="bg-white dark:bg-black font-sans leading-normal text-gray-800 dark:text-gray-400">
+    <div x-data="{ open: false }" class="relative bg-white dark:bg-black overflow-hidden">
+    <div class="max-w-7xl mx-auto lg:h-screen">
+        <div class="relative z-10 pb-8 bg-white dark:bg-black sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:h-screen lg:pb-28 xl:pb-32">
+            <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white dark:text-black transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <polygon points="50,0 100,0 50,100 0,100" />
+            </svg>
+
+            <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
+                <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
+                    <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
+                        <div class="flex items-center justify-start w-full md:w-auto">
+                            <a href="#" class="uppercase font-extrabold font-title text-3xl md:text-5xl">
+                                <span class="sr-only">stopa development</span>
+                                <span class="text-gray-900 dark:text-indigo-600">stopa</span><span class="text-gray-500 dark:text-gray-100 md:hidden">dev</span><span class="hidden md:inline text-gray-500 dark:text-gray-100">development</span>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+                <div class="sm:text-center lg:text-left">
+                    <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-gray-100 sm:text-5xl md:text-6xl">
+                        <span class="block text-gray-500">Hi I'm Jess, master of</span>
+                        <span class="block text-gray-900 dark:text-indigo-600"><span class="typed-elememt"></span></span>
+                    </h1>
+                    <p class="mt-3 text-base text-gray-500 dark:text-gray-400 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                        This site will tell you more about who I am, what I do and what I have done. Professionally that is. Don't get too excited.
+                    </p>
+                    <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                        <div class="rounded-md shadow">
+                            <a href="#about-me" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-900 dark:bg-indigo-600 hover:bg-gray-700 dark:hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
+                                Show me more
+                            </a>
+                        </div>
+                        <div class="mt-3 sm:mt-0 sm:ml-3">
+                            <a href="https://www.youtube.com/watch?v=DLzxrzFCyOs" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-700 dark:text-indigo-700 bg-gray-200 dark:bg-indigo-100 hover:bg-gray-300 dark:hover:bg-indigo-200 md:py-4 md:text-lg md:px-10">
+                                I'm not supposed to be here
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+                <img class="h-96 w-full object-cover md:h-screen lg:w-full lg:h-full" src="/assets/profile.jpg" alt="Jess Stopa">
+        
+    </div>
+
+    <div class="fixed z-40 right-6 top-5 flex items-center">
+        <button @click="open = true" type="button" class="rounded-md p-2 inline-flex items-center justify-center text-gray-700 dark:text-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 dark:focus:ring-indigo-500" id="main-menu" aria-haspopup="true">
+            <span class="sr-only">Open main menu</span>
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+    </div>
+
+    <div class="fixed z-40 right-6 bottom-6 p-2">
+        <div class="tada flex justify-center items-center" x-data="{ theme: localStorage.theme || 'dark' }" x-init="() => $watch('theme', value => setTheme(theme))">
+            <div class="relative rounded-full w-12 h-6 transition duration-200 ease-linear" :class="[ theme === 'dark' ? 'bg-indigo-600' : 'bg-gray-300' ]">
+                <label for="theme" class="absolute left-0 bg-white border mb-2 w-6 h-6 rounded-full transition transform duration-100 ease-linear cursor-pointer border-gray-300 flex justify-center items-center" :class="[theme === 'dark' ? 'translate-x-full' : 'translate-x-0']">
+                    <template x-if="theme === 'light'">
+                        <svg class="h-4" :class="[ theme === 'lights' ? 'text-indigo-600' : 'text-gray-600' ]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                    </template>
+                    <template x-if="theme === 'dark'">
+                        <svg class="h-4" :class="[ theme === 'darks' ? 'text-indigo-600' : 'text-gray-600' ]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                    </template>
+                </label>
+                <input type="checkbox" id="theme" name="theme" class="appearance-none w-full h-full active:outline-none focus:outline-none cursor-pointer" @click="theme === 'dark' ? theme = 'light' : theme = 'dark'">
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed w-full top-0 left-0 inset-x-0 p-4 transition transform origin-top-right z-50"
+        x-show="open"
+        @click="open = false"
+        @click.away="open = false"
+        x-transition:enter="duration-150 ease-out"
+        x-transition:enter-start="opacity-0 scale-95"
+        x-transition:enter-end="opacity-100 scale-100"
+        x-transition:leave="duration-100 ease-in"
+        x-transition:leave-start="opacity-100 scale-100"
+        x-transition:leave-end="opacity-0 scale-95"
+        >
+        <div class="shadow-md bg-white dark:bg-black p-3 ring-1 ring-indigo-400 ring-opacity-5 overflow-hidden">
+            <div class="px-4 pt-3 flex items-center justify-between">
+                <div>
+                    <a href="#" class="uppercase font-extrabold font-title text-3xl md:text-5xl">
+                        <span class="text-gray-900 dark:text-indigo-600">menu</span>
+                    </a>
+                </div>
+                <button @click="open = false" type="button" class="rounded-md p-2 inline-flex items-center justify-center text-gray-400 dark:text-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 dark:focus:ring-indigo-500">
+                    <span class="sr-only">Close main menu</span>
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div role="menu" aria-orientation="vertical" aria-labelledby="main-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1" role="none">
+                    <a href="#about-me" class="block p-2 font-medium text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100" role="menuitem">About Me</a>
+                    <a href="#experience" class="block p-2 font-medium text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100" role="menuitem">Experience</a>
+                    <ul class="ml-4">
+                                                <li>
+                            <a href="#section1" class="block px-2 py-1 text-sm text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100" role="menuitem">Adapt</a>
+                        </li>
+                                                <li>
+                            <a href="#section2" class="block px-2 py-1 text-sm text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100" role="menuitem">Bærnholdt</a>
+                        </li>
+                                                <li>
+                            <a href="#section3" class="block px-2 py-1 text-sm text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100" role="menuitem">Cubicle</a>
+                        </li>
+                                                <li>
+                            <a href="#section4" class="block px-2 py-1 text-sm text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100" role="menuitem">Kodeafdelingen</a>
+                        </li>
+                                                <li>
+                            <a href="#section5" class="block px-2 py-1 text-sm text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100" role="menuitem">Ziik</a>
+                        </li>
+                                                <li>
+                            <a href="#section6" class="block px-2 py-1 text-sm text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100" role="menuitem">Linkfire</a>
+                        </li>
+                                                <li>
+                            <a href="#section7" class="block px-2 py-1 text-sm text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100" role="menuitem">Cool Gray</a>
+                        </li>
+                                                <li>
+                            <a href="#section8" class="block px-2 py-1 text-sm text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100" role="menuitem">Linkfire</a>
+                        </li>
+                                                <li>
+                            <a href="#section9" class="block px-2 py-1 text-sm text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100" role="menuitem">Konform</a>
+                        </li>
+                        
+                    </ul>
+                    <a href="#recommendations" class="block p-2 font-medium text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100" role="menuitem">Recommendations</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mx-auto lg:min-h-screen bg-gradient-to-b from-white to-gray-100 dark:from-black dark:to-gray-900">
+    <div id="about-me" class="container mx-auto px-2 py-32 min-h-screen flex flex-col items-center">
+        <div class="flex flex-col justify-center items-center text-center text-lg w-full min-h-screen md:w-3/4 lg:w-2/3 mx-auto my-8">
+            <div class="prose-lg">
+                <h1 class="font-title text-center text-3xl md:text-5xl">About me</h1>
+                <p>I love everything Laravel and Vue, and I love preaching the Laravel gospel to those willing to listen. And sometimes also the unwilling. I am a fullstack developer, and I know my way around the various javascript framework-of-the-day (Vue, React etc.). I can take your brilliant design and turn it into a fully functional web/mobile/desktop app with (relative) ease.</p>
+<p>I am a certified SCRUM master and believe that agile is the only way to go. I'm also very comfortable in a lead role, and I'm confident that my many years as a developer, is a great benefit in such a position.</p>
+<p>I am very motivated when it comes to things that I find interesting, and I enjoy working in an informal environment. I'm always up for a good laugh and a beer with my boss and co-workers.</p>
+<p>I'm a technology hungry, byte minded code monkey, with an eagle eye for details, always trying to reach the next level.</p>
+<p>By the way, be warned. I have quite a few tattoos. None of which will eat you.</p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="lg:min-h-screen bg-gray-100 dark:bg-gray-900">
+    <div class="container mx-auto px-12 py-32">
+        <h2 id="experience" class="font-title text-center text-3xl md:text-5xl">Experience</h2>
+    </div>
+    <div class="w-full flex">
+        <div class="w-3/12 hidden lg:block relative">
+            <div class="sticky left-0 top-1/3">
+                <nav>
+                    <ul class="subnav w-96">
+                                                <li data-target="#section1" class="h-8 flex items-center ml-4 relative">
+                            <a href="#section1" class="text-xs uppercase font-light text-gray-700 dark:text-gray-400 hover:text-gray-500 dark:hover:text-gray-100">Adapt</a>
+                        </li>
+                                                <li data-target="#section2" class="h-8 flex items-center ml-4 relative">
+                            <a href="#section2" class="text-xs uppercase font-light text-gray-700 dark:text-gray-400 hover:text-gray-500 dark:hover:text-gray-100">Bærnholdt</a>
+                        </li>
+                                                <li data-target="#section3" class="h-8 flex items-center ml-4 relative">
+                            <a href="#section3" class="text-xs uppercase font-light text-gray-700 dark:text-gray-400 hover:text-gray-500 dark:hover:text-gray-100">Cubicle</a>
+                        </li>
+                                                <li data-target="#section4" class="h-8 flex items-center ml-4 relative">
+                            <a href="#section4" class="text-xs uppercase font-light text-gray-700 dark:text-gray-400 hover:text-gray-500 dark:hover:text-gray-100">Kodeafdelingen</a>
+                        </li>
+                                                <li data-target="#section5" class="h-8 flex items-center ml-4 relative">
+                            <a href="#section5" class="text-xs uppercase font-light text-gray-700 dark:text-gray-400 hover:text-gray-500 dark:hover:text-gray-100">Ziik</a>
+                        </li>
+                                                <li data-target="#section6" class="h-8 flex items-center ml-4 relative">
+                            <a href="#section6" class="text-xs uppercase font-light text-gray-700 dark:text-gray-400 hover:text-gray-500 dark:hover:text-gray-100">Linkfire</a>
+                        </li>
+                                                <li data-target="#section7" class="h-8 flex items-center ml-4 relative">
+                            <a href="#section7" class="text-xs uppercase font-light text-gray-700 dark:text-gray-400 hover:text-gray-500 dark:hover:text-gray-100">Cool Gray</a>
+                        </li>
+                                                <li data-target="#section8" class="h-8 flex items-center ml-4 relative">
+                            <a href="#section8" class="text-xs uppercase font-light text-gray-700 dark:text-gray-400 hover:text-gray-500 dark:hover:text-gray-100">Linkfire</a>
+                        </li>
+                                                <li data-target="#section9" class="h-8 flex items-center ml-4 relative">
+                            <a href="#section9" class="text-xs uppercase font-light text-gray-700 dark:text-gray-400 hover:text-gray-500 dark:hover:text-gray-100">Konform</a>
+                        </li>
+                        
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div>
+                        <section id="section1" class="relative lg:min-h-screen mx-8 mb-24 flex flex-col justify-center">
+                <div class="mb-8">
+                    <div class="text-3xl font-title text-gray-700 dark:text-gray-300 mb-2">Adapt</div>
+                </div>
+
+                                <div class="mb-8">
+                    <h3 class="text-base font-semibold text-gray-900 dark:text-indigo-600 uppercase">Technical Lead</h3>
+                    <p class="text-base text-gray-700 dark:text-gray-400">March 2021 to present</p>
+                    <div class="mt-4 w-full lg:w-3/4"><p>At Adapt I'm the technical lead for the backend team. The team has 10 backenders and together with the frontend and mobile teams, we're creating digital products for a wide variety of clients.</p>
+</div>
+                </div>
+                
+
+                                <div class="w-full hidden lg:block lg:w-2/3">
+                    <a href="#section2" class="block w-8 mx-auto mt-12 text-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                        </svg>
+                    </a>
+                </div>
+                
+            </section>
+                        <section id="section2" class="relative lg:min-h-screen mx-8 mb-24 flex flex-col justify-center">
+                <div class="mb-8">
+                    <div class="text-3xl font-title text-gray-700 dark:text-gray-300 mb-2">Bærnholdt</div>
+                </div>
+
+                                <div class="mb-8">
+                    <h3 class="text-base font-semibold text-gray-900 dark:text-indigo-600 uppercase">Team Lead</h3>
+                    <p class="text-base text-gray-700 dark:text-gray-400">March 2019 to February 2021</p>
+                    <div class="mt-4 w-full lg:w-3/4"><p>At Bærnholdt I was the team lead, having the responsibility of delegating work to primarily external developers, such as outsourced developers in the middle-east as well as local freelancers.</p>
+</div>
+                </div>
+                
+
+                                <div class="w-full hidden lg:block lg:w-2/3">
+                    <a href="#section3" class="block w-8 mx-auto mt-12 text-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                        </svg>
+                    </a>
+                </div>
+                
+            </section>
+                        <section id="section3" class="relative lg:min-h-screen mx-8 mb-24 flex flex-col justify-center">
+                <div class="mb-8">
+                    <div class="text-3xl font-title text-gray-700 dark:text-gray-300 mb-2">Cubicle</div>
+                </div>
+
+                                <div class="mb-8">
+                    <h3 class="text-base font-semibold text-gray-900 dark:text-indigo-600 uppercase">Owner</h3>
+                    <p class="text-base text-gray-700 dark:text-gray-400">December 2018 to March 2019</p>
+                    <div class="mt-4 w-full lg:w-3/4"><p>I was the owner of Cubicle, a web development company, where I specialized in modern web and hybrid app development. Chances are that if it’s php or JavaScript I can most likely help you out. I do everything from static websites to full blown SaaS solutions.</p>
+</div>
+                </div>
+                
+
+                                <div class="w-full hidden lg:block lg:w-2/3">
+                    <a href="#section4" class="block w-8 mx-auto mt-12 text-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                        </svg>
+                    </a>
+                </div>
+                
+            </section>
+                        <section id="section4" class="relative lg:min-h-screen mx-8 mb-24 flex flex-col justify-center">
+                <div class="mb-8">
+                    <div class="text-3xl font-title text-gray-700 dark:text-gray-300 mb-2">Kodeafdelingen</div>
+                </div>
+
+                                <div class="mb-8">
+                    <h3 class="text-base font-semibold text-gray-900 dark:text-indigo-600 uppercase">Freelancer</h3>
+                    <p class="text-base text-gray-700 dark:text-gray-400">July 2008 to November 2018</p>
+                    <div class="mt-4 w-full lg:w-3/4"><p>My own private company, through which I'm doing the occasional freelance work for small companies, as well as companies run by my friends and acquaintances.<br />
+I have worked mostly with Wordpress and a few MVC frameworks. Also a few of those from-the-ground-up type of deals.</p>
+</div>
+                </div>
+                
+
+                                <div class="w-full hidden lg:block lg:w-2/3">
+                    <a href="#section5" class="block w-8 mx-auto mt-12 text-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                        </svg>
+                    </a>
+                </div>
+                
+            </section>
+                        <section id="section5" class="relative lg:min-h-screen mx-8 mb-24 flex flex-col justify-center">
+                <div class="mb-8">
+                    <div class="text-3xl font-title text-gray-700 dark:text-gray-300 mb-2">Ziik</div>
+                </div>
+
+                                <div class="mb-8">
+                    <h3 class="text-base font-semibold text-gray-900 dark:text-indigo-600 uppercase">Lead Developer</h3>
+                    <p class="text-base text-gray-700 dark:text-gray-400">November 2017 to August 2018</p>
+                    <div class="mt-4 w-full lg:w-3/4"><p>At Ziik I was hired to take over the main responsibility of development of the main platform, as well as managing development and process of mobile apps.<br />
+Work includes, but is not limited to, clarification of features while adhering to business needs, sparring with web and app designers, planning of the product roadmap and performing actual development in Laravel and Vue.</p>
+</div>
+                </div>
+                
+
+                                <div class="w-full hidden lg:block lg:w-2/3">
+                    <a href="#section6" class="block w-8 mx-auto mt-12 text-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                        </svg>
+                    </a>
+                </div>
+                
+            </section>
+                        <section id="section6" class="relative lg:min-h-screen mx-8 mb-24 flex flex-col justify-center">
+                <div class="mb-8">
+                    <div class="text-3xl font-title text-gray-700 dark:text-gray-300 mb-2">Linkfire</div>
+                </div>
+
+                                <div class="mb-8">
+                    <h3 class="text-base font-semibold text-gray-900 dark:text-indigo-600 uppercase">Team Lead</h3>
+                    <p class="text-base text-gray-700 dark:text-gray-400">September 2016 to October 2017</p>
+                    <div class="mt-4 w-full lg:w-3/4"><p>As team lead at Linkfire I was responsible for managing a team of 5, including acting as scrum master and managing the process of multiple projects simultaneously. Daily work included having standup meetings, sprint planning, sprint reviews as well as doing some development work on different projects, most involving Laravel and Javascript.</p>
+</div>
+                </div>
+                                <div class="mb-8">
+                    <h3 class="text-base font-semibold text-gray-900 dark:text-indigo-600 uppercase">Head of Internal Services</h3>
+                    <p class="text-base text-gray-700 dark:text-gray-400">November 2015 to August 2016</p>
+                    <div class="mt-4 w-full lg:w-3/4"><p>This time around, at Linkfire, I was responsible for the development of an in-house management platform, that served as an administration interface on top of the customer database. This included creation of new client in the system, pulling usage statistics data and automation of time-consuming tasks. Technologies used were Laravel, mySQL and jQuery.</p>
+</div>
+                </div>
+                
+
+                                <div class="w-full hidden lg:block lg:w-2/3">
+                    <a href="#section7" class="block w-8 mx-auto mt-12 text-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                        </svg>
+                    </a>
+                </div>
+                
+            </section>
+                        <section id="section7" class="relative lg:min-h-screen mx-8 mb-24 flex flex-col justify-center">
+                <div class="mb-8">
+                    <div class="text-3xl font-title text-gray-700 dark:text-gray-300 mb-2">Cool Gray</div>
+                </div>
+
+                                <div class="mb-8">
+                    <h3 class="text-base font-semibold text-gray-900 dark:text-indigo-600 uppercase">Backend Developer</h3>
+                    <p class="text-base text-gray-700 dark:text-gray-400">November 2014 to October 2015</p>
+                    <div class="mt-4 w-full lg:w-3/4"><p>At Cool Gray I served mainly as the backend developer, but some projects also included frontend work. Most projects were built on Wordpress, and included professional websites as well as webshops, booking systems and intranet.</p>
+</div>
+                </div>
+                
+
+                                <div class="w-full hidden lg:block lg:w-2/3">
+                    <a href="#section8" class="block w-8 mx-auto mt-12 text-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                        </svg>
+                    </a>
+                </div>
+                
+            </section>
+                        <section id="section8" class="relative lg:min-h-screen mx-8 mb-24 flex flex-col justify-center">
+                <div class="mb-8">
+                    <div class="text-3xl font-title text-gray-700 dark:text-gray-300 mb-2">Linkfire</div>
+                </div>
+
+                                <div class="mb-8">
+                    <h3 class="text-base font-semibold text-gray-900 dark:text-indigo-600 uppercase">CTO</h3>
+                    <p class="text-base text-gray-700 dark:text-gray-400">February 2014 to October 2014</p>
+                    <div class="mt-4 w-full lg:w-3/4"><p>At my first stint at Linkfire I was acting CTO, taking care of the entire tech side. This included describing, planning, developing and testing of new features, as well as maintenance and optimisation of the servers. The first edition of the platform was built on Zend Framework 2, but later transformed into an API with an Angular SPA built on top.</p>
+</div>
+                </div>
+                
+
+                                <div class="w-full hidden lg:block lg:w-2/3">
+                    <a href="#section9" class="block w-8 mx-auto mt-12 text-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                        </svg>
+                    </a>
+                </div>
+                
+            </section>
+                        <section id="section9" class="relative lg:min-h-screen mx-8 mb-24 flex flex-col justify-center">
+                <div class="mb-8">
+                    <div class="text-3xl font-title text-gray-700 dark:text-gray-300 mb-2">Konform</div>
+                </div>
+
+                                <div class="mb-8">
+                    <h3 class="text-base font-semibold text-gray-900 dark:text-indigo-600 uppercase">Lead Developer</h3>
+                    <p class="text-base text-gray-700 dark:text-gray-400">March 2013 to January 2014</p>
+                    <div class="mt-4 w-full lg:w-3/4"><p>As I gained more experience as a senior developer, I was promoted lead developer and took on a more decision-making role, leading the team towards a more robust way of doing out daily work.</p>
+</div>
+                </div>
+                                <div class="mb-8">
+                    <h3 class="text-base font-semibold text-gray-900 dark:text-indigo-600 uppercase">Senior Developer</h3>
+                    <p class="text-base text-gray-700 dark:text-gray-400">December 2007 to February 2013</p>
+                    <div class="mt-4 w-full lg:w-3/4"><p>I was the main developer on a proprietary, licensed custom CMS. The CMS was written in PHP on Zend Framework.<br />
+Also did a whole lot of business websites and web based systems, both small medium and large. The sites varied from small portfolio type sites to complex webshops and multi-user websites.</p>
+</div>
+                </div>
+                
+
+                
+            </section>
+            
+        </div>
+    </div>
+</div>
+
+<div class="px-12 py-32 lg:min-h-screen bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800">
+    <div class="container mx-auto">
+        <h2 id="recommendations" class="font-title text-center text-3xl md:text-5xl mb-24">Recommendations</h2>
+                <div class="max-w-4xl mx-auto mb-24">
+            <div class="text-xl mb-8 italic quote relative">
+                <p>&quot;Jess is a great person to work with, highly skilled, with a solution-oriented attitude, respected among co-workers and customers alike. He enjoys learning new technologies and interpersonal skills, gives serious thought to his own contribution to the team and has a great sense of humor.&quot;</p>
+
+            </div>
+            <div class="mx-auto w-64">
+                                <div class="text-center">
+                    <img src="/assets/schade.jpeg" width="75" height="75" class="rounded-full mx-auto mb-2">
+                </div>
+                
+                <div class="text-gray-900 dark:text-indigo-600 font-semibold text-center">Christian Schade</div>
+                <div class="text-gray-500 uppercase text-xs text-center">Linkfire</div>
+            </div>
+        </div>
+                <div class="max-w-4xl mx-auto mb-24">
+            <div class="text-xl mb-8 italic quote relative">
+                <p>&quot;I had the pleasure of hiring Jess for a role as backend developer on my team at Cool Gray.<br />
+Jess is a fixer and a doer. Give him a challenge or a problem and he buckles down and keeps on working on it, until he finds a solution - and continuously a great solution that is.<br />
+He was the lead developer on what at the time was the largest digital project Cool Gray had ever undertaken and he solved every aspect with bravour.<br />
+He always brings good mood to the team and he is great company both professionally and personally.<br />
+Jess has my highest recommendations.&quot;</p>
+
+            </div>
+            <div class="mx-auto w-64">
+                                <div class="text-center">
+                    <img src="/assets/hyst.jpeg" width="75" height="75" class="rounded-full mx-auto mb-2">
+                </div>
+                
+                <div class="text-gray-900 dark:text-indigo-600 font-semibold text-center">Martin Hyst</div>
+                <div class="text-gray-500 uppercase text-xs text-center">Cool Gray</div>
+            </div>
+        </div>
+                <div class="max-w-4xl mx-auto mb-24">
+            <div class="text-xl mb-8 italic quote relative">
+                <p>&quot;Jess has a great ability to learn new technologies and apply them in a goal oriented way. He's a lot of fun to have as a colleague and not too shabby a team member as well.&quot;</p>
+
+            </div>
+            <div class="mx-auto w-64">
+                                <div class="text-center">
+                    <img src="/assets/terji.jpeg" width="75" height="75" class="rounded-full mx-auto mb-2">
+                </div>
+                
+                <div class="text-gray-900 dark:text-indigo-600 font-semibold text-center">Terji Petersen</div>
+                <div class="text-gray-500 uppercase text-xs text-center">Valuesoft</div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+    <div class="mx-auto px-2 flex items-center justify-center bg-gray-200 dark:bg-gray-800">
+        <div class="text-center">
+            <p class="text-sm">Built with</p>
+            <div class="flex items-center built-with">
+                <a href="https://statamic.com" title="Statamic">
+                    <svg id="statamic-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 272.1" height="50">
+                        <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="99.153" y1="65.596" x2="150.124" y2="205.639">
+                            <stop offset="0" stop-color="#da2fb6" />
+                            <stop offset="1" stop-color="#fe1876" />
+                        </linearGradient>
+                        <path d="M172.9 195.7c10.9 0 14.9-4.7 14.9-16.2v-22.4c0-10.7 5.2-16.8 10.2-19.7 1.5-.9 1.5-3 0-4-5.2-3.3-10.2-10.2-10.2-19.4V92c0-12.4-3.4-16-14.3-16H75.6c-10.9 0-14.3 3.6-14.3 16v22c0 9.2-5 16.1-10.2 19.4-1.5.9-1.5 3.1 0 4 5 2.8 10.2 8.9 10.2 19.7v22.4c0 11.5 4 16.2 14.9 16.2h96.7zm-48.6-20.5c-11.7 0-20.2-3.5-28.1-10.4-1.3-1.2-1.8-2.7-1.8-4.2 0-1.2.3-2.5 1.2-3.5L98 154c1.2-1.5 2.5-2.2 4-2.2 1.7 0 3.3.7 5 1.8 5.4 3.5 11.4 5.5 18.6 5.5 5.5 0 9.9-2.3 9.9-7 0-12.2-40.6-5.5-40.6-32.9 0-14.7 12-22.9 27.6-22.9 11 0 19.1 3.2 25.1 7 1.5 1 2.5 3 2.5 5 0 1.2-.3 2.3-1 3.3l-1.8 2.7c-1.3 1.8-2.8 2.7-4.7 2.7-1.3 0-2.7-.5-4.2-1.2-4.5-2.3-9.2-3.5-14.9-3.5-5.9 0-9.4 3.2-9.4 6.5 0 12.5 40.6 5.7 40.6 32.3 0 14.9-12 24.1-30.4 24.1z" fill="url(#a)" />
+                    </svg>
+                </a>
+                <span class="text-gray-600 dark:text-gray-400 text-xl mr-2">+</span>
+                <a href="https://tailwindcss.com" title="tailwindcss">
+                    <svg width="30" height="18" fill="#16BDCA">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M15 0c-4 0-6.5 2-7.5 6 1.5-2 3.25-2.75 5.25-2.25 1.141.285 1.957 1.113 2.86 2.03C17.08 7.271 18.782 9 22.5 9c4 0 6.5-2 7.5-6-1.5 2-3.25 2.75-5.25 2.25-1.141-.285-1.957-1.113-2.86-2.03C20.42 1.728 18.718 0 15 0zM7.5 9C3.5 9 1 11 0 15c1.5-2 3.25-2.75 5.25-2.25 1.141.285 1.957 1.113 2.86 2.03C9.58 16.271 11.282 18 15 18c4 0 6.5-2 7.5-6-1.5 2-3.25 2.75-5.25 2.25-1.141-.285-1.957-1.113-2.86-2.03C12.92 10.729 11.218 9 7.5 9z"></path>
+                    </svg>
+                </a>
+                <span class="text-gray-600 dark:text-gray-400 text-xl mx-2">+</span>
+                <a href="https://github.com/alpinejs/alpine" title="Alpine.js">
+                    <svg viewBox="0 0 45.116 22.806" xmlns="http://www.w3.org/2000/svg" height="20">
+                        <g opacity=".8">
+                            <path d="M33.71 0L11.207 22.693l.113.113h22.586l11.21-11.304z" fill="#d8dee9" />
+                            <path d="M11.405 0l22.578 22.769-.039.037H11.209L0 11.502z" fill="#8ac0cf" />
+                        </g>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/site.js?id=b5c922f574df57a7e662"></script>
+</body>
+</html>
